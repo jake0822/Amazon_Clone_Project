@@ -1,0 +1,12 @@
+﻿################################################################################
+# This .gitignore file was automatically created by Microsoft(R) Visual Studio.
+################################################################################
+
+/.vs
+/App.AmazonClone/.vs
+/App.AmazonClone/App.AmazonClone/obj
+/App.AmazonClone/Library.AmazonClone/obj
+/Library.AmazonClone/Library.AmazonClone/obj
+/Library.AmazonClone/.vs/Library.AmazonClone
+/App.AmazonClone/App.AmazonClone/bin/Debug/net8.0
+/App.AmazonClone/Library.AmazonClone/bin/Debug/net8.0

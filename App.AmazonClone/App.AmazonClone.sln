@@ -1,0 +1,31 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 17
+VisualStudioVersion = 17.10.34916.146
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "App.AmazonClone", "App.AmazonClone\App.AmazonClone.csproj", "{04394B98-7737-46B2-B06C-7C63ECE6C89C}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Library.AmazonClone", "Library.AmazonClone\Library.AmazonClone.csproj", "{E33F10DD-1D46-4722-9D76-38AA3F768DD6}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{04394B98-7737-46B2-B06C-7C63ECE6C89C}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{04394B98-7737-46B2-B06C-7C63ECE6C89C}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{04394B98-7737-46B2-B06C-7C63ECE6C89C}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{04394B98-7737-46B2-B06C-7C63ECE6C89C}.Release|Any CPU.Build.0 = Release|Any CPU
+		{E33F10DD-1D46-4722-9D76-38AA3F768DD6}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{E33F10DD-1D46-4722-9D76-38AA3F768DD6}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{E33F10DD-1D46-4722-9D76-38AA3F768DD6}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{E33F10DD-1D46-4722-9D76-38AA3F768DD6}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {119C6C41-7899-44E2-BFD3-2445EE650C39}
+	EndGlobalSection
+EndGlobal

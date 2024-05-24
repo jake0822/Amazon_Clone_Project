@@ -1,4 +1,5 @@
 ﻿using System;
+using Library.AmazonClone.Models;
 
 namespace MyApp
 {
@@ -6,7 +7,11 @@ namespace MyApp
     {
         static void Main(string[] args)
         {
-            Console.WriteLine("Hello World!");
+            var myInventory = new Inventory();
+
+            Console.WriteLine("Welcome to Amazoon!");
+            Console.WriteLine("\nShop - s\nInventory Management - i");
+            Console.ReadLine();
         }
     }
 }

@@ -4,15 +4,16 @@ using System.Collections.ObjectModel;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using Library.AmazonClone.Models;
 
-namespace Library.AmazonClone.Models
+namespace Library.AmazonClone.Services
 {
     public class Cart
     {
         private List<Item>? items;
-        public Cart() 
-        { 
-        items = new List<Item>();
+        public Cart()
+        {
+            items = new List<Item>();
         }
 
         private static Cart? instance;
@@ -40,7 +41,7 @@ namespace Library.AmazonClone.Models
             }
         }
         //========= functionality
-        public Item? Add (Item item)
+        public Item? Add(Item item)
         {
             if (items == null)
             {
@@ -50,7 +51,7 @@ namespace Library.AmazonClone.Models
             return item;
         }
 
-        public Item? Remove (Item item)
+        public Item? Remove(Item item)
         {
             if (items == null)
             {

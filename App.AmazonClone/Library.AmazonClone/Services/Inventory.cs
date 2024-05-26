@@ -4,16 +4,17 @@ using System.Collections.ObjectModel;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using Library.AmazonClone.Models;
 
-namespace Library.AmazonClone.Models
+namespace Library.AmazonClone.Services
 {
     public class Inventory
     {
         private List<Item>? items;
-      
-        public Inventory() 
-        { 
-        items = new List<Item>();
+
+        public Inventory()
+        {
+            items = new List<Item>();
         }
 
         private static Inventory? instance;
@@ -64,10 +65,10 @@ namespace Library.AmazonClone.Models
 
             var isAdd = false;
 
-            if (item.Id == 0) 
+            if (item.Id == 0)
             {
                 item.Id = LastId + 1;
-                isAdd = true; 
+                isAdd = true;
             }
 
             if (isAdd)
@@ -91,6 +92,6 @@ namespace Library.AmazonClone.Models
                 items.Remove(itemToDelete);
             }
         }
-        
+
     }
 }

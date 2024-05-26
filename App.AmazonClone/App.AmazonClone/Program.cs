@@ -1,5 +1,6 @@
 ﻿using System;
 using Library.AmazonClone.Models;
+using Library.AmazonClone.Services;
 
 namespace MyApp
 {
@@ -229,7 +230,7 @@ namespace MyApp
             myCart?.Items?.ToList()?.ForEach(i => Console.WriteLine($"[{i.Id}] {i.Name} - ${i.Price} - {i.AvailableQuantity} in cart"));
             myCart?.Items?.ToList()?.ForEach(i => subtotal += (float)(i.Price * i.AvailableQuantity));
             float tax = (float)Math.Round(subtotal * 0.07f, 2);
-            float total = subtotal + tax;
+            float total = (float)Math.Round(subtotal + tax, 2);
             Console.WriteLine($"Subtotal: ${subtotal}\nTax: ${tax}\nTotal: ${total}\n---------------------------");
         }
     }

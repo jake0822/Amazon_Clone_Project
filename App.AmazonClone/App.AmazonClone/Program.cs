@@ -145,7 +145,14 @@ namespace MyApp
                 {
                     Console.WriteLine("Enter the quantity of the item to remove from cart");
                     var quantity = int.Parse(Console.ReadLine());
-                    myCart.Remove(item); 
+                    var cartItem = myCart?.Items?.FirstOrDefault(i => i.Id == id);
+                    if (quantity < cartItem.AvailableQuantity)
+                    {
+                        cartItem.AvailableQuantity -= quantity;
+                    }
+                    else if (quantity >= cartItem.AvailableQuantity)
+                        myCart?.Remove(cartItem);
+
                     item.AvailableQuantity += quantity;
 
                     Console.WriteLine("Item removed from cart");
@@ -165,6 +172,7 @@ namespace MyApp
             else if (input == "c")
             {
                 Console.WriteLine("Checkout");
+                itemizedReceipt();
                 state = "start";
             }
             else
@@ -211,6 +219,18 @@ namespace MyApp
             }
 
             return state;
+        }
+
+        static void itemizedReceipt()
+        {
+            var myCart = Cart.Current;
+            var myInventory = Inventory.Current;
+            float subtotal = 0;
+            myCart?.Items?.ToList()?.ForEach(i => Console.WriteLine($"[{i.Id}] {i.Name} - ${i.Price} - {i.AvailableQuantity} in cart"));
+            myCart?.Items?.ToList()?.ForEach(i => subtotal += (float)(i.Price * i.AvailableQuantity));
+            float tax = (float)Math.Round(subtotal * 0.07f, 2);
+            float total = subtotal + tax;
+            Console.WriteLine($"Subtotal: ${subtotal}\nTax: ${tax}\nTotal: ${total}\n---------------------------");
         }
     }
 }

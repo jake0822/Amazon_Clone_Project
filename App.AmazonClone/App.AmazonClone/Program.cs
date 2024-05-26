@@ -7,6 +7,10 @@ namespace MyApp
     {
         static void Main(string[] args)
         {
+            //List<Item> fart = new List<Item>();
+            //fart.Add(new Item { Name = "jake" });
+            //fart.ForEach(i => Console.WriteLine(i.Name));
+
             var myInventory = Inventory.Current;
             var state = "start";
 
@@ -86,8 +90,80 @@ namespace MyApp
         }
         private static string ShopState()
         {
+            List<Item> cart = new List<Item>();
             var state = "shop";
-            Console.WriteLine("Add item to cart - a");
+            Console.WriteLine("Shop available items - s\nAdd item to cart - a\nRemove item from cart - r\nView cart - v\nCheckout - c");
+            var input = Console.ReadLine();
+            if (input == "s") {                 
+                var myInventory = Inventory.Current;
+                myInventory?.Items?.ToList()?.ForEach(i => Console.WriteLine(i));
+                state = "shop";
+            }
+            else if (input == "a")
+            {
+                Console.WriteLine("Enter the id of the item to add to cart");
+                var id = int.Parse(Console.ReadLine());
+                var myInventory = Inventory.Current;
+                var item = myInventory?.Items?.FirstOrDefault(i => i.Id == id);
+                if (item != null)
+                {
+                    Console.WriteLine("Enter the quantity of the item to add to cart");
+                    var quantity = int.Parse(Console.ReadLine());
+                    if (quantity <= item.AvailableQuantity)
+                    {
+                        item.AvailableQuantity -= quantity;
+                        cart.Add(new Item { Id = item.Id, Name = item.Name, Description = item.Description, Price = item.Price, AvailableQuantity = quantity });
+
+                        Console.WriteLine("Item added to cart");
+                    }
+                    else
+                    {
+                        Console.WriteLine("Not enough items available");
+                    }
+                }
+                else
+                {
+                    Console.WriteLine("Item not found");
+                }
+                state = "shop";
+            }
+            else if (input == "r")
+            {
+                Console.WriteLine("Enter the id of the item to remove from cart");
+                var id = int.Parse(Console.ReadLine());
+                var myInventory = Inventory.Current;
+                var item = myInventory?.Items?.FirstOrDefault(i => i.Id == id);
+                if (item != null)
+                {
+                    Console.WriteLine("Enter the quantity of the item to remove from cart");
+                    var quantity = int.Parse(Console.ReadLine());
+                    cart.RemoveAll(i => i.Id == id); 
+                    item.AvailableQuantity += quantity;
+
+                    Console.WriteLine("Item removed from cart");
+                }
+                else
+                {
+                    Console.WriteLine("Item not found");
+                }
+                state = "shop";
+            }
+            else if (input == "v")
+            {
+                cart.ForEach(i => Console.WriteLine($"{ i.Name} - number in cart: {i.AvailableQuantity}"));
+                state = "shop";
+            }
+            else if (input == "c")
+            {
+                Console.WriteLine("Checkout");
+                state = "start";
+            }
+            else
+            {
+                Console.WriteLine("Invalid input");
+                state = "shop";
+            }
+            
             return state;
         }
         private static string startState()

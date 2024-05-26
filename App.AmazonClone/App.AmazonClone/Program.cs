@@ -42,8 +42,54 @@ namespace MyApp
         private static string InventoryState()
         {
             var state = "inventory";
-            Console.WriteLine("Add an Item - a\nView Your Items - v\nRemove an Item - r\nback - b");
+            Console.WriteLine("Add an Item - a\nView Your Items - v\nRemove an Item - r\nUpdate an Item - u\nBack - b");
             var input = Console.ReadLine();
+            if (input == "u") 
+            {
+                Console.WriteLine("Enter the id of the item to update");
+                var id = int.Parse(Console.ReadLine());
+                var myInventory = Inventory.Current;
+                var item = myInventory?.Items?.FirstOrDefault(i => i.Id == id);
+                if (item != null)
+                {
+                    Console.WriteLine(item);
+                    Console.WriteLine("What do you want to update?\nName - n\nDescription - d\nPrice - p\nQuantity - q");
+                    var updateInput = Console.ReadLine();
+                    if (updateInput == "n")
+                    {
+                        Console.WriteLine("Enter the new name of the item");
+                        var name = Console.ReadLine();
+                        item.Name = name;
+                    }
+                    else if (updateInput == "d")
+                    {
+                        Console.WriteLine("Enter the new description of the item");
+                        var description = Console.ReadLine();
+                        item.Description = description;
+                    }
+                    else if (updateInput == "p")
+                    {
+                        Console.WriteLine("Enter the new price of the item");
+                        var price = float.Parse(Console.ReadLine());
+                        item.Price = price;
+                    }
+                    else if (updateInput == "q")
+                    {
+                        Console.WriteLine("Enter the new quantity of the item available");
+                        var availableQuantity = int.Parse(Console.ReadLine());
+                        item.AvailableQuantity = availableQuantity;
+                    }
+                    else
+                    {
+                        Console.WriteLine("Invalid input");
+                    }
+                    
+                }
+                else
+                {
+                    Console.WriteLine("Item not found");
+                }
+            }
             if (input == "b")
                 {
                 state = "start";
@@ -147,11 +193,11 @@ namespace MyApp
                     Console.WriteLine("Enter the quantity of the item to remove from cart");
                     var quantity = int.Parse(Console.ReadLine());
                     var cartItem = myCart?.Items?.FirstOrDefault(i => i.Id == id);
-                    if (quantity < cartItem.AvailableQuantity)
+                    if (quantity < cartItem?.AvailableQuantity)
                     {
                         cartItem.AvailableQuantity -= quantity;
                     }
-                    else if (quantity >= cartItem.AvailableQuantity)
+                    else if (quantity >= cartItem?.AvailableQuantity)
                         myCart?.Remove(cartItem);
 
                     item.AvailableQuantity += quantity;

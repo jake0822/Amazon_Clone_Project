@@ -11,6 +11,7 @@ namespace MyApp
             //fart.Add(new Item { Name = "jake" });
             //fart.ForEach(i => Console.WriteLine(i.Name));
 
+            var myCart = Cart.Current;
             var myInventory = Inventory.Current;
             var state = "start";
 
@@ -92,9 +93,13 @@ namespace MyApp
         {
             List<Item> cart = new List<Item>();
             var state = "shop";
-            Console.WriteLine("Shop available items - s\nAdd item to cart - a\nRemove item from cart - r\nView cart - v\nCheckout - c");
+            Console.WriteLine("Shop available items - s\nAdd item to cart - a\nRemove item from cart - r\nView cart - v\nCheckout - c\nBack - b");
             var input = Console.ReadLine();
-            if (input == "s") {                 
+            if (input == "b")
+            {
+                state = "start";
+            }
+            else if (input == "s") {                 
                 var myInventory = Inventory.Current;
                 myInventory?.Items?.ToList()?.ForEach(i => Console.WriteLine(i));
                 state = "shop";
@@ -104,6 +109,7 @@ namespace MyApp
                 Console.WriteLine("Enter the id of the item to add to cart");
                 var id = int.Parse(Console.ReadLine());
                 var myInventory = Inventory.Current;
+                
                 var item = myInventory?.Items?.FirstOrDefault(i => i.Id == id);
                 if (item != null)
                 {
@@ -112,7 +118,8 @@ namespace MyApp
                     if (quantity <= item.AvailableQuantity)
                     {
                         item.AvailableQuantity -= quantity;
-                        cart.Add(new Item { Id = item.Id, Name = item.Name, Description = item.Description, Price = item.Price, AvailableQuantity = quantity });
+                        var myCart = Cart.Current;
+                        myCart.Add(new Item { Id = item.Id, Name = item.Name, Description = item.Description, Price = item.Price, AvailableQuantity = quantity });
 
                         Console.WriteLine("Item added to cart");
                     }
@@ -132,12 +139,13 @@ namespace MyApp
                 Console.WriteLine("Enter the id of the item to remove from cart");
                 var id = int.Parse(Console.ReadLine());
                 var myInventory = Inventory.Current;
+                var myCart = Cart.Current;
                 var item = myInventory?.Items?.FirstOrDefault(i => i.Id == id);
                 if (item != null)
                 {
                     Console.WriteLine("Enter the quantity of the item to remove from cart");
                     var quantity = int.Parse(Console.ReadLine());
-                    cart.RemoveAll(i => i.Id == id); 
+                    myCart.Remove(item); 
                     item.AvailableQuantity += quantity;
 
                     Console.WriteLine("Item removed from cart");
@@ -150,7 +158,8 @@ namespace MyApp
             }
             else if (input == "v")
             {
-                cart.ForEach(i => Console.WriteLine($"{ i.Name} - number in cart: {i.AvailableQuantity}"));
+                var myCart = Cart.Current;
+                myCart?.Items?.ToList()?.ForEach(i => Console.WriteLine($"[{i.Id}] {i.Name} - number in cart: {i.AvailableQuantity}"));
                 state = "shop";
             }
             else if (input == "c")

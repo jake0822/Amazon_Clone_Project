@@ -12,8 +12,19 @@ namespace Library.AmazonClone.Models
         public string? Description { get; set; }
         public float Price { get; set; }
         public int Id { get; set; }
+        public int AvailableQuantity { get; set; }
 
-        public Item() { }
+        public Item() 
+        { 
+            Name = string.Empty;
+            Description = string.Empty;
+            Price = 0;
+            Id = 0;
+        }
 
+        public override string ToString()
+        {
+            return $"[{Id}] {Name} - ${Price} - {Description} - {AvailableQuantity} available items";
+        }
     }
 }

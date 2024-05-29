@@ -8,9 +8,9 @@ namespace MyApp
     {
         static void Main(string[] args)
         {
-            //List<Item> fart = new List<Item>();
-            //fart.Add(new Item { Name = "jake" });
-            //fart.ForEach(i => Console.WriteLine(i.Name));
+            //List<Item> smart = new List<Item>();
+            //smart.Add(new Item { Name = "jake" });
+            //smart.ForEach(i => Console.WriteLine(i.Name));
 
             var myCart = Cart.Current;
             var myInventory = Inventory.Current;

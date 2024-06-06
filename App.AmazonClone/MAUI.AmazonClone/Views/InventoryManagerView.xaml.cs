@@ -9,4 +9,8 @@ public partial class InventoryManagerView : ContentPage
 		InitializeComponent();
 		BindingContext = new InventoryManagerViewViewModel();
 	}
+    private void CancelClicked(object sender, EventArgs e)
+    {
+        Shell.Current.GoToAsync("//MainPage");
+    }
 }

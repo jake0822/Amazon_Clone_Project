@@ -8,5 +8,8 @@
             Text="INVENTORY MANAGEMENT VIEW"
             VerticalOptions="Center" 
             HorizontalOptions="Center" />
+        <Button 
+            Text="Cancel"
+            Clicked="CancelClicked" />
     </VerticalStackLayout>
 </ContentPage>

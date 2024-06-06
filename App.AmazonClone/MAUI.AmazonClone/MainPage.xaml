@@ -7,25 +7,20 @@
         <VerticalStackLayout
             Padding="30,0"
             Spacing="25">
-            <Image
-                Source="dotnet_bot.png"
-                HeightRequest="185"
-                Aspect="AspectFit"
-                SemanticProperties.Description="dot net bot in a race car number eight" />
+          
             <Label
                 Text="Welcome to Amazoon"
                 Style="{StaticResource Headline}"
                 SemanticProperties.HeadingLevel="Level1" />
-            
-
-            
-
+  
             <Button
-                x:Name="CounterBtn"
-                Text="Click me" 
-                SemanticProperties.Hint="Counts the number of times you click"
-                Clicked="OnCounterClicked"
+                Text="Shop" 
+                Clicked="CustomerClicked"
                 HorizontalOptions="Fill" />
+            <Button
+                Text="Manage Inventory" 
+                Clicked="InventoryClicked"
+                HorizontalOptions="Fill" />     
         </VerticalStackLayout>
     </ScrollView>
 

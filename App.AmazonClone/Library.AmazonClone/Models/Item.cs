@@ -20,6 +20,7 @@ namespace Library.AmazonClone.Models
             Description = string.Empty;
             Price = 0;
             Id = 0;
+            AvailableQuantity = 0;
         }
 
         public override string ToString()

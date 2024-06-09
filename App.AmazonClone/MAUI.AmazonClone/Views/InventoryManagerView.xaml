@@ -8,7 +8,34 @@
             Text="INVENTORY MANAGEMENT VIEW"
             VerticalOptions="Center" 
             HorizontalOptions="Center" />
-        <Button 
+        <ListView
+            ItemsSource="{Binding Items}"
+            >
+            <ListView.ItemTemplate>
+                <DataTemplate>
+                    <ViewCell>
+                        <Grid>
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition/>
+                                <ColumnDefinition/>
+                                <ColumnDefinition/>
+                                <ColumnDefinition/>
+                                <ColumnDefinition/>
+                                <ColumnDefinition/>
+                            </Grid.ColumnDefinitions>
+                            <Label Text="{Binding Id}" Grid.Column="0"/>
+                            <Label Text="{Binding Name}" Grid.Column="1"/>
+                            <Label Text="{Binding Price, StringFormat='${0}'}" Grid.Column="2"/>
+                            <Label Text="{Binding AvailableQuantity, StringFormat='{0} available in inventory'}" Grid.Column="3"/>
+                            <Button Text="Edit" Grid.Column="4"/>
+                            <Button Text="Delete" Grid.Column="5"/>
+
+                        </Grid>
+                    </ViewCell>
+                </DataTemplate>
+            </ListView.ItemTemplate>
+        </ListView>
+            <Button 
             Text="Cancel"
             Clicked="CancelClicked" />
     </VerticalStackLayout>

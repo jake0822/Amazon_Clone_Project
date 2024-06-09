@@ -14,7 +14,11 @@ namespace Library.AmazonClone.Services
 
         public Inventory()
         {
-            items = new List<Item>();
+            items = new List<Item>
+            {
+                new Item { Name = "HairDryer" },
+                new Item { Name = "Shampoo" }
+            };
         }
 
         private static Inventory? instance;

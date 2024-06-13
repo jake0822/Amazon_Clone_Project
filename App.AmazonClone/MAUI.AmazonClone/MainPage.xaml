@@ -16,11 +16,13 @@
             <Button
                 Text="Shop" 
                 Clicked="CustomerClicked"
-                HorizontalOptions="Fill" />
+                HorizontalOptions="Fill"
+                BackgroundColor="DarkSeaGreen"/>
             <Button
                 Text="Manage Inventory" 
                 Clicked="InventoryClicked"
-                HorizontalOptions="Fill" />     
+                HorizontalOptions="Fill"
+                BackgroundColor="DarkSeaGreen"/>     
         </VerticalStackLayout>
     </ScrollView>
 

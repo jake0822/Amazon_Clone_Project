@@ -10,10 +10,10 @@ namespace MAUI.AmazonClone.ViewModels
 {
     public class InventoryManagerViewViewModel
     {
-        public List <Item> Items {
+        public List <ItemViewModel> Items {
             get 
             {
-            return Inventory.Current?.Items?.ToList() ?? new List<Item>();
+            return Inventory.Current?.Items?.Select(i => new ItemViewModel(i)).ToList() ?? new List<ItemViewModel>();
             }
         }
         public InventoryManagerViewViewModel() { }

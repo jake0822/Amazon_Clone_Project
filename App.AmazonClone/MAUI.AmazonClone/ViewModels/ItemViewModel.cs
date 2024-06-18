@@ -1,4 +1,5 @@
 ﻿using Library.AmazonClone.Models;
+using Library.AmazonClone.Services;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -26,6 +27,49 @@ namespace MAUI.AmazonClone.ViewModels
                 }
             }
         }
+        public int Id
+        {
+            get
+            {
+                return Item?.Id ?? 0;
+            }
+            set
+            {
+                if (Item != null)
+                {
+                    Item.Id = value;
+                }
+            }
+        }
+        public float Price
+        {
+            get
+            {
+                return Item?.Price ?? 0;
+            }
+            set
+            {
+                if (Item != null)
+                {
+                    Item.Price = value;
+                }
+            }
+        }
+        public int AvailableQuantity
+        {
+            get
+            {
+                return Item?.AvailableQuantity ?? 0;
+            }
+            set
+            {
+                if (Item != null)
+                {
+                    Item.AvailableQuantity = value;
+                }
+            }
+        }
+
         public ItemViewModel()
         {
             Item = new Item();
@@ -33,6 +77,10 @@ namespace MAUI.AmazonClone.ViewModels
         public ItemViewModel(Item i)
         {
             Item = i;
+        }
+        public void AddOrUpdate()
+        {
+           Inventory.Current?.AddOrUpdate(Item);
         }
         private void ExecuteEdit(ItemViewModel? p)
         {

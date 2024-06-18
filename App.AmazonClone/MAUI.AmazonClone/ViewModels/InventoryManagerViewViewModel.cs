@@ -18,10 +18,7 @@ namespace MAUI.AmazonClone.ViewModels
         }
         public InventoryManagerViewViewModel() { }
 
-        public void UpdateItem()
-        {
-            //Inventory.Current?.AddOrUpdate(Items.Select(i => i.Item).ToList());
-        }
+        
 
     }
 }

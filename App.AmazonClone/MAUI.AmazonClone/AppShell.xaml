@@ -22,5 +22,9 @@
         Title="Inventory Manager"
         ContentTemplate="{DataTemplate local2:InventoryManagerView}"
         Route="Inventory" />
+    <ShellContent
+    Title="Item Manager"
+    ContentTemplate="{DataTemplate local2:ItemView}"
+    Route="Item" />
 
 </Shell>

@@ -27,7 +27,7 @@
                             <Label Text="{Binding Name}" Grid.Column="1"/>
                             <Label Text="{Binding Price, StringFormat='${0}'}" Grid.Column="2"/>
                             <Label Text="{Binding AvailableQuantity, StringFormat='{0} available in inventory'}" Grid.Column="3"/>
-                            <Button Text="Edit" Grid.Column="4"/>
+                            <Button Text="Edit" Clicked= "EditClicked" Grid.Column="4"/>
                             <Button Text="Delete" Grid.Column="5"/>
 
                         </Grid>
@@ -35,7 +35,8 @@
                 </DataTemplate>
             </ListView.ItemTemplate>
         </ListView>
-            <Button 
+        <Button Text="Add New Item" Clicked="AddClicked"/>
+        <Button 
             Text="Cancel"
             Clicked="CancelClicked" />
     </VerticalStackLayout>

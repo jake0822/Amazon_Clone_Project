@@ -13,4 +13,14 @@ public partial class InventoryManagerView : ContentPage
     {
         Shell.Current.GoToAsync("//MainPage");
     }
+
+    private void EditClicked(object sender, EventArgs e)
+    {
+        Shell.Current.GoToAsync("//Item");
+    }
+
+    private void AddClicked(object sender, EventArgs e)
+    {
+        Shell.Current.GoToAsync("//Item");
+    }
 }

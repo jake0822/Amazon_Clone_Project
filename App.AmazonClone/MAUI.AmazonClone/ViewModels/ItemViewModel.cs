@@ -34,7 +34,20 @@ namespace MAUI.AmazonClone.ViewModels
         {
             Item = i;
         }
+        private void ExecuteEdit(ItemViewModel? p)
+        {
+            if (p?.Item == null)
+            {
+                return;
+            }
+            Shell.Current.GoToAsync($"//Contact?contactId={p.Item.Id}");
+        }
         public ICommand EditCommand { get; private set; }
-        
+        public void SetupCommands()
+        {
+            EditCommand = new Command(
+                (c) => ExecuteEdit(c as ItemViewModel));
+        }
+
     }
 }

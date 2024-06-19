@@ -23,4 +23,14 @@ public partial class InventoryManagerView : ContentPage
     {
         Shell.Current.GoToAsync("//Item");
     }
+
+    private void ContentPage_NavigatedFrom(object sender, NavigatedFromEventArgs e)
+    {
+
+    }
+
+    private void ContentPage_NavigatedTo(object sender, NavigatedToEventArgs e)
+    {
+        (BindingContext as InventoryManagerViewViewModel)?.RefreshItems();
+    }
 }

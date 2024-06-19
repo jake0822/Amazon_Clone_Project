@@ -78,7 +78,7 @@ namespace MAUI.AmazonClone.ViewModels
         {
             Item = i;
         }
-        public void AddOrUpdate()
+        public void Add()
         {
            Inventory.Current?.AddOrUpdate(Item);
         }

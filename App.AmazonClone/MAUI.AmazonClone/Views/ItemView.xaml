@@ -2,7 +2,8 @@
 <ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="MAUI.AmazonClone.Views.ItemView"
-             Title="ItemView">
+             Title="ItemView"
+             NavigatedTo="ContentPage_NavigatedTo">
     <VerticalStackLayout>
         <Grid>
             <Grid.ColumnDefinitions>
@@ -11,9 +12,20 @@
                 <ColumnDefinition/>
             </Grid.ColumnDefinitions>
             <Label Grid.Column="1" Text="Name"/>
-            <Entry Grid.Column="3"/>
+            <Entry Grid.Column="3" Text = "{Binding Name}" />
         </Grid>
-        
+        <Grid>
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition/>
+                <ColumnDefinition/>
+                <ColumnDefinition/>
+            </Grid.ColumnDefinitions>
+            <Label Grid.Column="1" Text="Price"/>
+            <Entry Grid.Column="3" Text = "{Binding Price}" />
+        </Grid>
+
+
+
         <Button Text="Ok" Clicked="OkClicked"/>
         <Button Text="Cancel" Clicked="CancelClicked"/>
     </VerticalStackLayout>

@@ -27,6 +27,20 @@ namespace MAUI.AmazonClone.ViewModels
                 }
             }
         }
+        public string Description
+        {
+            get
+            {
+                return Item?.Description ?? string.Empty;
+            }
+            set
+            {
+                if (Item != null)
+                {
+                    Item.Description = value;
+                }
+            }
+        }
         public int Id
         {
             get
@@ -77,6 +91,7 @@ namespace MAUI.AmazonClone.ViewModels
         public ItemViewModel(Item i)
         {
             Item = i;
+            SetupCommands();
         }
         public void Add()
         {
@@ -88,7 +103,7 @@ namespace MAUI.AmazonClone.ViewModels
             {
                 return;
             }
-            Shell.Current.GoToAsync($"//Contact?contactId={p.Item.Id}");
+            Shell.Current.GoToAsync($"//Item?itemId={p.Item.Id}");
         }
         public ICommand EditCommand { get; private set; }
         public void SetupCommands()
@@ -96,6 +111,15 @@ namespace MAUI.AmazonClone.ViewModels
             EditCommand = new Command(
                 (c) => ExecuteEdit(c as ItemViewModel));
         }
+        public ItemViewModel(int id)
+        {
+            Item = Inventory.Current?.Items?.FirstOrDefault(c => c.Id == id);
+            if (Item == null)
+            {
+                Item = new Item();
+            }
+        }
 
+        
     }
 }

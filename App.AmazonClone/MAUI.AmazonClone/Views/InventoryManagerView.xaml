@@ -29,7 +29,8 @@
                             <Label Text="{Binding Name}" Grid.Column="1"/>
                             <Label Text="{Binding Price, StringFormat='${0}'}" Grid.Column="2"/>
                             <Label Text="{Binding AvailableQuantity, StringFormat='{0} available'}" Grid.Column="3"/>
-                            <Button Text="Edit" Clicked= "EditClicked" Grid.Column="4"/>
+                            <Button Text="Edit" Grid.Column="4" Command="{Binding Path=EditCommand}"
+                                    CommandParameter="{Binding}"/>
                             <Button Text="Delete" Grid.Column="5"/>
 
                         </Grid>

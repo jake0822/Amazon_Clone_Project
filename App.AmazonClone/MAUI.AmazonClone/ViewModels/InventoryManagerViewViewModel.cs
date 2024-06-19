@@ -31,8 +31,9 @@ namespace MAUI.AmazonClone.ViewModels
         {
             NotifyPropertyChanged("Items");
         }
-
         
 
-    }
+
+
+        }
 }

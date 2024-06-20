@@ -33,4 +33,9 @@ public partial class InventoryManagerView : ContentPage
     {
         (BindingContext as InventoryManagerViewViewModel)?.RefreshItems();
     }
+
+    private void DeleteClicked(object sender, EventArgs e)
+    {
+        (BindingContext as InventoryManagerViewViewModel).RefreshItems();
+    }
 }

@@ -105,11 +105,25 @@ namespace MAUI.AmazonClone.ViewModels
             }
             Shell.Current.GoToAsync($"//Item?itemId={p.Item.Id}");
         }
+        private void ExecuteDelete(int? id)
+        {
+            if(id == null)
+            {  
+                return;
+            }
+
+            Inventory.Current.Delete(id ?? 0);
+               
+
+        }
         public ICommand EditCommand { get; private set; }
-        public void SetupCommands()
+        public ICommand DeleteCommand { get; private set; }
+    public void SetupCommands()
         {
             EditCommand = new Command(
                 (c) => ExecuteEdit(c as ItemViewModel));
+            DeleteCommand = new Command(
+                (c) => ExecuteDelete((c as ItemViewModel)?.Item?.Id));
         }
         public ItemViewModel(int id)
         {

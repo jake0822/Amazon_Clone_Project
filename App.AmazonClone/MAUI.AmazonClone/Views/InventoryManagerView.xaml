@@ -31,7 +31,7 @@
                             <Label Text="{Binding AvailableQuantity, StringFormat='{0} available'}" Grid.Column="3"/>
                             <Button Text="Edit" Grid.Column="4" Command="{Binding Path=EditCommand}"
                                     CommandParameter="{Binding}"/>
-                            <Button Text="Delete" Grid.Column="5"/>
+                            <Button Text="Delete" Grid.Column="5" Command="{Binding Path=DeleteCommand}" CommandParameter="{Binding}" Clicked="DeleteClicked"/>
 
                         </Grid>
                     </ViewCell>

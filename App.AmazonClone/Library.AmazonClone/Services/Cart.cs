@@ -15,7 +15,7 @@ namespace Library.AmazonClone.Services
         {
             items = new List<Item>
             {
-                new Item{ Name = "Ranch", Id = 1 }
+                new Item{ Name = "Ranch", Id = 99, AvailableQuantity = 2 }
             };
         }
 
@@ -54,7 +54,7 @@ namespace Library.AmazonClone.Services
             return item;
         }
 
-        public Item? Remove(Item item)
+        public Item? Remove(Item item)//legacy method to delete items in cart for Console App
         {
             if (items == null)
             {
@@ -62,6 +62,19 @@ namespace Library.AmazonClone.Services
             }
             items.Remove(item);
             return item;
+        }
+        public void Delete(int id)
+        {
+            if (items == null)
+            {
+                return;
+            }
+            var itemToDelete = items.FirstOrDefault(c => c.Id == id);
+
+            if (itemToDelete != null)
+            {
+                items.Remove(itemToDelete);
+            }
         }
     }
 }

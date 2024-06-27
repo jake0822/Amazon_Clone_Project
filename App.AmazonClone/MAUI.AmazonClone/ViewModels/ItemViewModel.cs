@@ -1,4 +1,5 @@
-﻿using Library.AmazonClone.Models;
+﻿//using HealthKit;
+using Library.AmazonClone.Models;
 using Library.AmazonClone.Services;
 using System;
 using System.Collections.Generic;
@@ -116,6 +117,69 @@ namespace MAUI.AmazonClone.ViewModels
                
 
         }
+        private void ExecuteRemoveFromCart(int? id)
+        {
+            var myInventory = Inventory.Current;
+            var item = myInventory?.Items?.FirstOrDefault(i => i.Id == id);
+            var cartItem = Cart.Current?.Items?.FirstOrDefault(i => i.Id == id);
+            if (id == null)
+            {
+                return;
+            }
+            if (item != null && cartItem != null)
+            {
+                if (cartItem.AvailableQuantity > 0)
+                {
+                    cartItem.AvailableQuantity--;
+                    item.AvailableQuantity++;
+                }
+                if (cartItem.AvailableQuantity == 0)
+                {
+                    Cart.Current.Delete(id ?? 0);
+                }
+            }
+            else
+            {
+
+                Cart.Current.Delete(id ?? 0);
+            }
+        }
+        private void ExecuteAddToCart(ItemViewModel? p)
+        {
+            
+            var myInventory = Inventory.Current;
+            var item = myInventory?.Items?.FirstOrDefault(i => i.Id == p.Id);
+            var cartItem = Cart.Current?.Items?.FirstOrDefault(i => i.Id == p.Id);
+            if (p?.Item == null)
+            {
+                return;
+            }
+            if (item != null && item.AvailableQuantity > 0)
+            {
+                var myCart = Cart.Current;
+                if (cartItem != null)
+                {
+                    cartItem.AvailableQuantity++;
+                    item.AvailableQuantity--;
+
+                }
+                else
+                {
+                    myCart.Add(new Item
+                    {
+                        Id = item.Id,
+                        Name = item.Name,
+                        Description = item.Description,
+                        Price = item.Price,
+                        AvailableQuantity = 1
+                    });
+                    item.AvailableQuantity--;
+                }
+            }
+            
+        }
+        public ICommand AddToCartCommand { get; private set; }
+        public ICommand RemoveFromCartCommand { get; private set; }
         public ICommand EditCommand { get; private set; }
         public ICommand DeleteCommand { get; private set; }
     public void SetupCommands()
@@ -124,6 +188,11 @@ namespace MAUI.AmazonClone.ViewModels
                 (c) => ExecuteEdit(c as ItemViewModel));
             DeleteCommand = new Command(
                 (c) => ExecuteDelete((c as ItemViewModel)?.Item?.Id));
+            RemoveFromCartCommand = new Command(
+                (c) => ExecuteRemoveFromCart((c as ItemViewModel)?.Item?.Id));
+            AddToCartCommand = new Command(
+                (c) => ExecuteAddToCart(c as ItemViewModel));
+
         }
         public ItemViewModel(int id)
         {

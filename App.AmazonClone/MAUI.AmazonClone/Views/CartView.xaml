@@ -2,7 +2,8 @@
 <ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="MAUI.AmazonClone.Views.CartView"
-             Title="CartView">
+             Title="CartView"
+             NavigatedTo="ContentPage_NavigatedTo">
     <VerticalStackLayout>
         <Label 
             Text="This is Your Cart!"
@@ -27,7 +28,8 @@ ItemsSource="{Binding Items}"
                             <Label Text="{Binding Name}" Grid.Column="1"/>
                             <Label Text="{Binding Price, StringFormat='${0}'}" Grid.Column="2"/>
                             <Label Text="{Binding AvailableQuantity, StringFormat='{0} in Cart'}" Grid.Column="3"/>
-                            <Button Text="Remove From Cart" Grid.Column="4" />
+                            <Button Text="Remove From Cart" Grid.Column="4" Command="{Binding Path=RemoveFromCartCommand}"
+                                    CommandParameter="{Binding}" Clicked="Remove_Clicked"/>
 
 
                         </Grid>

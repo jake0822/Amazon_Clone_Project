@@ -24,4 +24,9 @@ public partial class CustomerView : ContentPage
     {
         Shell.Current.GoToAsync("//Cart");
     }
+
+    private void Add_Clicked(object sender, EventArgs e)
+    {
+        (BindingContext as CustomerViewViewModel)?.RefreshItems();
+    }
 }

@@ -38,7 +38,7 @@
         </ListView>
         <Button 
             Text= "View Cart"
-            Clicked="View_Cart_Clicked"
+            Clicked="View_Cart_Clicked" />
         <Button
             Text="Cancel"
             Clicked="CancelClicked" />

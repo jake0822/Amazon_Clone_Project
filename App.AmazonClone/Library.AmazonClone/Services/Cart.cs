@@ -13,7 +13,10 @@ namespace Library.AmazonClone.Services
         private List<Item>? items;
         public Cart()
         {
-            items = new List<Item>();
+            items = new List<Item>
+            {
+                new Item{ Name = "Ranch", Id = 1 }
+            };
         }
 
         private static Cart? instance;

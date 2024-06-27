@@ -22,6 +22,6 @@ public partial class CustomerView : ContentPage
 
     private void View_Cart_Clicked(object sender, EventArgs e)
     {
-
+        Shell.Current.GoToAsync("//Cart");
     }
 }

@@ -26,5 +26,9 @@
     Title="Item Manager"
     ContentTemplate="{DataTemplate local2:ItemView}"
     Route="Item" />
+    <ShellContent
+    Title="Cart Manager"
+    ContentTemplate="{DataTemplate local2:CartView}"
+    Route="Cart" />
 
 </Shell>

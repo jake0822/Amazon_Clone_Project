@@ -37,6 +37,7 @@ ItemsSource="{Binding Items}"
                 </DataTemplate>
             </ListView.ItemTemplate>
         </ListView>
+        <Label Text="{Binding total, StringFormat='Total: ${0}'}" FontSize="55"/>
         <Button Text=" Cancel" Clicked="Cancel_Clicked"/>
     </VerticalStackLayout>
 </ContentPage>

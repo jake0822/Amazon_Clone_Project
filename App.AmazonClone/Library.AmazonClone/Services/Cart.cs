@@ -15,7 +15,7 @@ namespace Library.AmazonClone.Services
         {
             items = new List<Item>
             {
-                new Item{ Name = "Ranch", Id = 99, AvailableQuantity = 2 }
+                new Item{ Name = "Ranch", Id = 99, AvailableQuantity = 2, Price = 2.99f }
             };
         }
 
@@ -75,6 +75,17 @@ namespace Library.AmazonClone.Services
             {
                 items.Remove(itemToDelete);
             }
+        }
+
+        public float Total()
+        {
+            float total = 0;
+            foreach (var item in items)
+            {
+                total += (item.AvailableQuantity * item.Price);
+            }
+
+            return total;
         }
     }
 }

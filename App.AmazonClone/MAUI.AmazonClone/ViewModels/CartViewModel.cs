@@ -32,7 +32,19 @@ namespace MAUI.AmazonClone.ViewModels
         {
             NotifyPropertyChanged("Items");
         }
+        public void RefreshTotal()
+        {
+            NotifyPropertyChanged("total");
+        }
+        public float total
+        {
+            get
+            {
+                return Cart.Current?.Total() ?? 0;
+            }
+        }
 
+    }    
 
-    }
+    
 }

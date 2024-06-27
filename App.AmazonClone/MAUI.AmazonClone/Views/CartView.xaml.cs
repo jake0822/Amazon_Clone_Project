@@ -18,10 +18,12 @@ public partial class CartView : ContentPage
     private void Remove_Clicked(object sender, EventArgs e)
     {
         (BindingContext as CartViewModel).RefreshItems();
+        (BindingContext as CartViewModel)?.RefreshTotal();
     }
 
     private void ContentPage_NavigatedTo(object sender, NavigatedToEventArgs e)
     {
         (BindingContext as CartViewModel)?.RefreshItems();
+        (BindingContext as CartViewModel)?.RefreshTotal();
     }
 }

@@ -14,4 +14,14 @@ public partial class CustomerView : ContentPage
     {
         Shell.Current.GoToAsync("//MainPage");
     }
+
+    private void ContentPage_NavigatedTo(object sender, NavigatedToEventArgs e)
+    {
+        (BindingContext as CustomerViewViewModel)?.RefreshItems();
+    }
+
+    private void View_Cart_Clicked(object sender, EventArgs e)
+    {
+
+    }
 }

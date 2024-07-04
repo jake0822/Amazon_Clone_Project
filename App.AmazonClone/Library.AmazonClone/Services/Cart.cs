@@ -15,7 +15,7 @@ namespace Library.AmazonClone.Services
         {
             items = new List<Item>
             {
-                new Item{ Name = "Ranch", Id = 99, AvailableQuantity = 2, Price = 2.99f }
+                //new Item{ Name = "Ranch", Id = 99, AvailableQuantity = 2, Price = 2.99f }
             };
         }
 
@@ -44,6 +44,10 @@ namespace Library.AmazonClone.Services
             }
         }
         //========= functionality
+        public void Clear()
+        {
+            items?.Clear();
+        }
         public Item? Add(Item item)
         {
             if (items == null)

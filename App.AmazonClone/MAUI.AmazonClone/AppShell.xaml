@@ -22,13 +22,20 @@
         Title="Inventory Manager"
         ContentTemplate="{DataTemplate local2:InventoryManagerView}"
         Route="Inventory" />
+    
     <ShellContent
-    Title="Item Manager"
-    ContentTemplate="{DataTemplate local2:ItemView}"
-    Route="Item" />
+        Title="Item Manager"
+        ContentTemplate="{DataTemplate local2:ItemView}"
+        Route="Item" />
+    
     <ShellContent
-    Title="Cart Manager"
-    ContentTemplate="{DataTemplate local2:CartView}"
-    Route="Cart" />
+        Title="Cart Manager"
+        ContentTemplate="{DataTemplate local2:CartView}"
+        Route="Cart" />
+    
+    <ShellContent
+        Title="Checkout"
+        ContentTemplate="{DataTemplate local2:CheckoutView}"
+        Route="Checkout" />
 
 </Shell>

@@ -38,7 +38,9 @@ namespace MAUI.AmazonClone.ViewModels
             NotifyPropertyChanged("total");
             NotifyPropertyChanged("taxCost");
             NotifyPropertyChanged("totalCost");
+            NotifyPropertyChanged("Itemized");
         }
+
         public float total
         {
             get
@@ -59,6 +61,19 @@ namespace MAUI.AmazonClone.ViewModels
             get
             {
                 return (total + taxCost).ToString("F2");
+            }
+        }
+
+        public string Itemized
+        {
+            get
+            {
+                StringBuilder sb = new StringBuilder();
+                foreach (var item in Items)
+                {
+                    sb.AppendLine($"{item.AvailableQuantity} - {item.Name} - {item.Price}");
+                }
+                return sb.ToString();
             }
         }
 

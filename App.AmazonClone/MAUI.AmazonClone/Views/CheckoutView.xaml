@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="MAUI.AmazonClone.Views.CheckoutView"
+             Title="CheckoutView"
+             NavigatedTo="ContentPage_NavigatedTo">
+    <VerticalStackLayout>
+        
+            <Label Text="{Binding Itemized}" FontSize="28"/>
+            <Label Text="{Binding total, StringFormat='Subtotal: ${0}'}" FontSize="35"/>
+            <Label Text="{Binding taxCost, StringFormat='Tax: ${0}'}" FontSize="35"/>
+            <Label Text="{Binding totalCost, StringFormat='Total: ${0}'}" FontSize="35"/>
+        <Button Text="Confirm Purchase" Clicked="Confirm_Clicked"/>
+        <Button Text="Cancel" Clicked="Cancel_Clicked"/>
+    </VerticalStackLayout>
+</ContentPage>

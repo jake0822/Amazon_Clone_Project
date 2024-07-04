@@ -26,4 +26,9 @@ public partial class CartView : ContentPage
         (BindingContext as CartViewModel)?.RefreshItems();
         (BindingContext as CartViewModel)?.RefreshTotal();
     }
+
+    private void Checkout_Clicked(object sender, EventArgs e)
+    {
+        Shell.Current.GoToAsync("//Checkout");
+    }
 }

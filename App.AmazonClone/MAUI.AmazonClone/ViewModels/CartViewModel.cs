@@ -68,10 +68,19 @@ namespace MAUI.AmazonClone.ViewModels
         {
             get
             {
+                var price = 0f;
                 StringBuilder sb = new StringBuilder();
                 foreach (var item in Items)
                 {
-                    sb.AppendLine($"{item.AvailableQuantity} - {item.Name} - {item.Price}");
+                    if (item.SalePrice < item.Price)
+                    {
+                        price = item.SalePrice;
+                    }
+                    else
+                    {
+                        price = item.Price;
+                    }
+                    sb.AppendLine($"{item.AvailableQuantity} - {item.Name} - ${price}");
                 }
                 return sb.ToString();
             }

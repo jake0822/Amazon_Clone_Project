@@ -56,6 +56,20 @@ namespace MAUI.AmazonClone.ViewModels
                 }
             }
         }
+        public float SalePrice
+        {
+            get
+            {
+                return Item?.SalePrice ?? 0;
+            }
+            set
+            {
+                if (Item != null)
+                {
+                    Item.SalePrice = value;
+                }
+            }
+        }
         public float Price
         {
             get
@@ -92,6 +106,7 @@ namespace MAUI.AmazonClone.ViewModels
         public ItemViewModel(Item i)
         {
             Item = i;
+            
             SetupCommands();
         }
         public void Add()
@@ -171,7 +186,8 @@ namespace MAUI.AmazonClone.ViewModels
                         Name = item.Name,
                         Description = item.Description,
                         Price = item.Price,
-                        AvailableQuantity = 1
+                        AvailableQuantity = 1,
+                        SalePrice = item.SalePrice
                     });
                     item.AvailableQuantity--;
                 }

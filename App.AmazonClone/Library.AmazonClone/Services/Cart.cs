@@ -83,10 +83,20 @@ namespace Library.AmazonClone.Services
 
         public float Total()
         {
+            float _price = 0;
+            
             float total = 0;
             foreach (var item in items)
             {
-                total += (item.AvailableQuantity * item.Price);
+                if (item.SalePrice < item.Price)
+                {
+                    _price = item.SalePrice;
+                }
+                else
+                {
+                    _price = item.Price;
+                }
+                total += (item.AvailableQuantity * _price);
             }
 
             return total;

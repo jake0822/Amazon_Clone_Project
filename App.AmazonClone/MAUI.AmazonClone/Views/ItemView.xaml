@@ -29,6 +29,15 @@
                 <ColumnDefinition/>
                 <ColumnDefinition/>
             </Grid.ColumnDefinitions>
+            <Label Grid.Column="1" Text="Sale Price"/>
+            <Entry Grid.Column="3" Text = "{Binding SalePrice}" />
+        </Grid>
+        <Grid>
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition/>
+                <ColumnDefinition/>
+                <ColumnDefinition/>
+            </Grid.ColumnDefinitions>
             <Label Grid.Column="1" Text="Available Quantity"/>
             <Entry Grid.Column="3" Text = "{Binding AvailableQuantity}" />
         </Grid>

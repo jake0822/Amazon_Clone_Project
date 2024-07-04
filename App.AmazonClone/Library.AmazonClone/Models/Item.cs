@@ -13,6 +13,7 @@ namespace Library.AmazonClone.Models
         public float Price { get; set; }
         public int Id { get; set; }
         public int AvailableQuantity { get; set; }
+        public float SalePrice { get; set;}
 
         public Item() 
         { 
@@ -21,6 +22,8 @@ namespace Library.AmazonClone.Models
             Price = 0;
             Id = 0;
             AvailableQuantity = 0;
+            SalePrice = 0;
+            
         }
 
         public override string ToString()

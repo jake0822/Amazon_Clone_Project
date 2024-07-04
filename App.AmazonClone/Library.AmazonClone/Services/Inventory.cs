@@ -11,13 +11,14 @@ namespace Library.AmazonClone.Services
     public class Inventory
     {
         private List<Item>? items;
+        public float taxRate { get; set; } = 7f;
 
         public Inventory()
         {
             items = new List<Item>
             {
-                //new Item { Name = "HairDryer", Id = 1, AvailableQuantity = 2, Price = 12.22f },
-                //new Item { Name = "Shampoo", Id = 2, AvailableQuantity = 1, Price = 1.99f}
+                new Item { Name = "HairDryer", Id = 1, AvailableQuantity = 2, Price = 12.22f },
+                new Item { Name = "Shampoo", Id = 2, AvailableQuantity = 1, Price = 1.99f}
             };
         }
 

@@ -20,6 +20,7 @@ namespace MAUI.AmazonClone.ViewModels
                 return Cart.Current?.Items?.Select(i => new ItemViewModel(i)).ToList() ?? new List<ItemViewModel>();
             }
         }
+        
 
         public event PropertyChangedEventHandler? PropertyChanged;
 
@@ -35,12 +36,29 @@ namespace MAUI.AmazonClone.ViewModels
         public void RefreshTotal()
         {
             NotifyPropertyChanged("total");
+            NotifyPropertyChanged("taxCost");
+            NotifyPropertyChanged("totalCost");
         }
         public float total
         {
             get
             {
                 return Cart.Current?.Total() ?? 0;
+            }
+        }
+        public float taxCost
+        {
+            get
+            {
+                return (float)Math.Round(Inventory.Current.taxRate * total * 0.01f, 2) ;
+            }
+
+        }
+        public string totalCost
+        {
+            get
+            {
+                return (total + taxCost).ToString("F2");
             }
         }
 

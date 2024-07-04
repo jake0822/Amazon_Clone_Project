@@ -25,6 +25,18 @@ namespace MAUI.AmazonClone.ViewModels
             return Inventory.Current?.Items?.Select(i => new ItemViewModel(i)).ToList() ?? new List<ItemViewModel>();
             }
         }
+        public float TaxRate
+        {
+            get
+            {
+                return Inventory.Current.taxRate;
+            }
+            set
+            {
+                Inventory.Current.taxRate = value;
+                NotifyPropertyChanged();
+            }
+        }
         public InventoryManagerViewViewModel() { }
 
         public void RefreshItems ()

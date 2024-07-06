@@ -25,15 +25,17 @@
                                 <ColumnDefinition/>
                                 <ColumnDefinition/>
                                 <ColumnDefinition/>
+                                <ColumnDefinition/>
                             </Grid.ColumnDefinitions>
                             <Label Text="{Binding Id}" Grid.Column="0"/>
                             <Label Text="{Binding Name}" Grid.Column="1"/>
                             <Label Text="{Binding Price, StringFormat='${0}'}" Grid.Column="2"/>
                             <Label Text="{Binding SalePrice, StringFormat='Sale: ${0}'}" Grid.Column="3"/>
-                            <Label Text="{Binding AvailableQuantity, StringFormat='{0} available'}" Grid.Column="4"/>
-                            <Button Text="Edit" Grid.Column="5" Command="{Binding Path=EditCommand}"
+                            <Label Text= "{Binding Bogo, StringFormat='BOGO: {0}'}" Grid.Column="4"/>
+                            <Label Text="{Binding AvailableQuantity, StringFormat='{0} available'}" Grid.Column="5"/>
+                            <Button Text="Edit" Grid.Column="6" Command="{Binding Path=EditCommand}"
                                     CommandParameter="{Binding}"/>
-                            <Button Text="Delete" Grid.Column="6" Command="{Binding Path=DeleteCommand}" CommandParameter="{Binding}" Clicked="DeleteClicked"/>
+                            <Button Text="Delete" Grid.Column="7" Command="{Binding Path=DeleteCommand}" CommandParameter="{Binding}" Clicked="DeleteClicked"/>
                             
 
                         </Grid>

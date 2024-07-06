@@ -7,7 +7,8 @@
     <VerticalStackLayout>
         
             <Label Text="{Binding Itemized}" FontSize="28"/>
-            <Label Text="{Binding total, StringFormat='Subtotal: ${0}'}" FontSize="35"/>
+            <Label Text="{Binding total, StringFormat='Subtotal (Before sales): ${0}'}" FontSize="35"/>
+            <Label Text="{Binding savings, StringFormat='Savings: ${0}'}" FontSize="35"/>
             <Label Text="{Binding taxCost, StringFormat='Tax: ${0}'}" FontSize="35"/>
             <Label Text="{Binding totalCost, StringFormat='Total: ${0}'}" FontSize="35"/>
         <Button Text="Confirm Purchase" Clicked="Confirm_Clicked"/>

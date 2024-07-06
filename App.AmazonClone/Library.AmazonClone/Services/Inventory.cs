@@ -17,8 +17,8 @@ namespace Library.AmazonClone.Services
         {
             items = new List<Item>
             {
-                new Item { Name = "HairDryer", Id = 1, AvailableQuantity = 2, Price = 12.22f },
-                new Item { Name = "Shampoo", Id = 2, AvailableQuantity = 1, Price = 1.99f}
+                new Item { Name = "HairDryer", Id = 1, AvailableQuantity = 2, Price = 12.22f, SalePrice = 12.22f },
+                new Item { Name = "Shampoo", Id = 2, AvailableQuantity = 1, Price = 1.99f,SalePrice = 1.99f}
             };
         }
 

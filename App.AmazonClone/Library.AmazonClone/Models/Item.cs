@@ -14,6 +14,7 @@ namespace Library.AmazonClone.Models
         public int Id { get; set; }
         public int AvailableQuantity { get; set; }
         public float SalePrice { get; set;}
+        public bool Bogo { get; set; }
 
         public Item() 
         { 
@@ -23,6 +24,7 @@ namespace Library.AmazonClone.Models
             Id = 0;
             AvailableQuantity = 0;
             SalePrice = 0;
+            Bogo = false;
             
         }
 

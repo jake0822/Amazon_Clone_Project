@@ -35,6 +35,7 @@ namespace MAUI.AmazonClone.ViewModels
         }
         public void RefreshTotal()
         {
+            NotifyPropertyChanged("savings");
             NotifyPropertyChanged("total");
             NotifyPropertyChanged("taxCost");
             NotifyPropertyChanged("totalCost");
@@ -52,15 +53,22 @@ namespace MAUI.AmazonClone.ViewModels
         {
             get
             {
-                return (float)Math.Round(Inventory.Current.taxRate * total * 0.01f, 2) ;
+                return (float)Math.Round(Inventory.Current.taxRate * (total - savings) * 0.01f, 2) ;
             }
 
+        }
+        public float savings
+                    {
+            get
+            {
+                return Cart.Current?.Savings() ?? 0;
+            }
         }
         public string totalCost
         {
             get
             {
-                return (total + taxCost).ToString("F2");
+                return (total + taxCost - savings).ToString("F2");
             }
         }
 
@@ -80,7 +88,7 @@ namespace MAUI.AmazonClone.ViewModels
                     {
                         price = item.Price;
                     }
-                    sb.AppendLine($"{item.AvailableQuantity} - {item.Name} - ${price}");
+                    sb.AppendLine($"{item.AvailableQuantity} - {item.Name} - ${price} - Bogo: {item.Bogo}");
                 }
                 return sb.ToString();
             }

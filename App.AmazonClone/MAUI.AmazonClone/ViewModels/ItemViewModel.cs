@@ -18,6 +18,7 @@ namespace MAUI.AmazonClone.ViewModels
         {
             get
             {
+            
                 return Item?.Name ?? string.Empty;
             }
             set
@@ -25,6 +26,20 @@ namespace MAUI.AmazonClone.ViewModels
                 if (Item != null)
                 {
                     Item.Name = value;
+                }
+            }
+        }
+        public bool Bogo
+        {
+            get
+            {
+                return Item?.Bogo ?? false;
+            }
+            set
+            {
+                if (Item != null)
+                {
+                    Item.Bogo = value;
                 }
             }
         }
@@ -187,7 +202,8 @@ namespace MAUI.AmazonClone.ViewModels
                         Description = item.Description,
                         Price = item.Price,
                         AvailableQuantity = 1,
-                        SalePrice = item.SalePrice
+                        SalePrice = item.SalePrice,
+                        Bogo = item.Bogo
                     });
                     item.AvailableQuantity--;
                 }

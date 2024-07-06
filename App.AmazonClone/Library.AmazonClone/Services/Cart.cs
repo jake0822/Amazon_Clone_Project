@@ -80,6 +80,21 @@ namespace Library.AmazonClone.Services
                 items.Remove(itemToDelete);
             }
         }
+        public float Savings()
+        {
+            
+            float total = 0;
+            foreach (var item in items)
+            {
+                total += (item.AvailableQuantity * (item.Price - item.SalePrice));
+                if (item.Bogo == true)
+                {
+                    total += ((item.AvailableQuantity/2) * item.SalePrice);
+                }
+            }
+
+            return total;
+        }
 
         public float Total()
         {
@@ -88,14 +103,14 @@ namespace Library.AmazonClone.Services
             float total = 0;
             foreach (var item in items)
             {
-                if (item.SalePrice < item.Price)
-                {
-                    _price = item.SalePrice;
-                }
-                else
-                {
+                //if (item.SalePrice < item.Price)
+                //{
+                   // _price = item.SalePrice;
+                //}
+                //else
+               // {
                     _price = item.Price;
-                }
+                //}
                 total += (item.AvailableQuantity * _price);
             }
 

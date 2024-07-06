@@ -44,8 +44,18 @@
         <Button 
             Text= "View Cart"
             Clicked="View_Cart_Clicked" />
+
+        <Grid>
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition/>
+                <ColumnDefinition/>
+            </Grid.ColumnDefinitions>
+            <Button Text="Set Wishlist Cart" Grid.Column ="0" Clicked="Set_Cart_Clicked"/>
+            <Label Text="Current Cart: {insert cart name}" Grid.Column="1" FontSize="Large"/>
+        </Grid>
         <Button
             Text="Cancel"
+            
             Clicked="CancelClicked" />
 
     </VerticalStackLayout>

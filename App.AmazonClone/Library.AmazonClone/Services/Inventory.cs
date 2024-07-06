@@ -53,7 +53,7 @@ namespace Library.AmazonClone.Services
         public int LastId
         {
             get
-            {
+            {   
                 if (items?.Any() ?? false)
                 {
                     return items?.Select(c => c.Id)?.Max() ?? 0;

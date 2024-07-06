@@ -37,5 +37,9 @@
         Title="Checkout"
         ContentTemplate="{DataTemplate local2:CheckoutView}"
         Route="Checkout" />
+    <ShellContent
+        Title="WishList"
+        ContentTemplate="{DataTemplate local2:CartWishlistView}"
+        Route="CartWishlist" />
 
 </Shell>

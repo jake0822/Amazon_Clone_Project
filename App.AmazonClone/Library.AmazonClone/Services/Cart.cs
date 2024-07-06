@@ -10,12 +10,14 @@ namespace Library.AmazonClone.Services
 {
     public class Cart
     {
+        public string? Name { get; set; }
+        public int Id { get; set; }
         private List<Item>? items;
         public Cart()
         {
             items = new List<Item>
             {
-                //new Item{ Name = "Ranch", Id = 99, AvailableQuantity = 2, Price = 2.99f }
+                
             };
         }
 
@@ -44,6 +46,7 @@ namespace Library.AmazonClone.Services
             }
         }
         //========= functionality
+        
         public void Clear()
         {
             items?.Clear();

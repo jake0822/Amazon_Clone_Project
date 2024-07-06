@@ -29,4 +29,9 @@ public partial class CustomerView : ContentPage
     {
         (BindingContext as CustomerViewViewModel)?.RefreshItems();
     }
+
+    private void Set_Cart_Clicked(object sender, EventArgs e)
+    {
+        Shell.Current.GoToAsync("//CartWishlist");
+    }
 }
